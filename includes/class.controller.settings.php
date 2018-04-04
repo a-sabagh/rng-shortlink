@@ -8,12 +8,12 @@ class rngshl_setting {
             add_action("admin_menu", array($this, "admin_menu"));
             add_action("admin_notices", array($this, "configuration_notices"));
             add_action("admin_init", array($this, "dismiss_configuration"));
-            add_filter('plugin_action_links_' . RNGSHL_PRU, array($this, 'add_setting_link'));
+            add_filter('plugin_action_links_' . RNGSHL_PRF, array($this, 'add_setting_link'));
         }
     }
 
     public function general_setting_section_top($args) {
-        _e("Check Post types You Want to Show Shortlink Metabox in Edit Panels");
+        _e("Check Post types You Want to Show Shortlink Metabox in Edit Panels","rng-shortlink");
     }
 
     public function general_setting_active_post_type($args) {
@@ -37,7 +37,7 @@ class rngshl_setting {
     public function general_settings_init() {
         register_setting("rngshl_general_setting", "rngshl_general_setting_option");
         add_settings_section(
-                "rngshl-general-settings-top", __("shortlink plugin settings"), array($this, "general_setting_section_top"), "rngshl_general_setting"
+                "rngshl-general-settings-top", __("shortlink plugin settings","rng-shortlink"), array($this, "general_setting_section_top"), "rngshl_general_setting"
         );
         add_settings_field(
                 "rngshl-active-post-type", __("sholtlink permission", "rng-shortlink"), array($this, "general_setting_active_post_type"), "rngshl_general_setting", "rngshl-general-settings-top", array(
