@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-04-04 06:39+0430\n"
+"PO-Revision-Date: 2018-04-04 06:39+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/admin/metabox-refresh.php:1
+msgid "Active Refreshing :"
+msgstr ""
+
+#: includes/admin/metabox-refresh.php:3
+msgid "on"
+msgstr ""
+
+#: includes/admin/metabox-refresh.php:4
+msgid "off"
+msgstr ""
+
+#: includes/admin/metabox-refresh.php:7
+msgid "Refresh Sycle Time :"
+msgstr ""
+
+#: includes/admin/metabox-refresh.php:9
+msgid "Pattern: "
+msgstr ""
+
+#: includes/admin/metabox-refresh.php:9
+msgid "(hour:minutes:second)"
+msgstr ""
+
+#: includes/admin/setting-panel.php:6
+msgid "Settings saved"
+msgstr ""
+
+#: includes/admin/setting-panel.php:8
+msgid "Error with saving"
+msgstr ""
+
+#: includes/admin/setting-panel.php:17
+msgid "save"
+msgstr ""
+
+#: includes/class.controller.refresh.php:37
+#: includes/class.controller.settings.php:53
+msgid "Refresh Settings"
+msgstr ""
+
+#: includes/class.controller.settings.php:16
+msgid "check post types you want to show refresh metabox in edit panels"
+msgstr ""
+
+#: includes/class.controller.settings.php:40
+msgid "refresh plugin settings"
+msgstr ""
+
+#: includes/class.controller.settings.php:43
+msgid "Refresh permission"
+msgstr ""
+
+#: includes/class.controller.settings.php:63
+#, php-format
+msgid ""
+"<div class=\"updated\"><p>RNG_refresh is activated, you may need to "
+"configure it to work properly. <a href=\"%s\">Go to Settings page</a> "
+"&ndash; <a href=\"%s\">Dismiss</a></p></div>"
+msgstr ""
+
+#: includes/class.controller.settings.php:76
+msgid "Settings"
+msgstr ""
