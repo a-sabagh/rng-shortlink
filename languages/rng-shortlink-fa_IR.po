@@ -1,11 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-05 02:11+0430\n"
-"PO-Revision-Date: 2018-04-05 02:20+0430\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2018-04-06 14:41+0430\n"
+"PO-Revision-Date: 2018-04-06 14:43+0430\n"
 "Language-Team: \n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,6 +11,8 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e\n"
+"Last-Translator: \n"
+"Language: fa\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/setting-panel.php:6
@@ -29,9 +29,7 @@ msgstr "ذخیره"
 
 #: includes/class.controller.settings.php:16
 msgid "Check Post types You Want to Show Shortlink Metabox in Edit Panels"
-msgstr ""
-"پست تایپ هایی که قصد دارید متاباکس لینک کوتاه در آن ها نمایش داده شود را "
-"انتخاب کنید"
+msgstr "پست تایپ هایی که قصد دارید متاباکس لینک کوتاه در آن ها نمایش داده شود را انتخاب کنید"
 
 #: includes/class.controller.settings.php:40
 msgid "shortlink plugin settings"
@@ -45,18 +43,19 @@ msgstr "اجازه برای لینک کوتاه"
 msgid "Shortlink Settings"
 msgstr "پلاگین لینک کوتاه"
 
-#: includes/class.controller.settings.php:63
-#, php-format
-msgid ""
-"<div class=\"updated\"><p>RNG_Shortlink is activated, you may need to "
-"configure it to work properly. <a href=\"%s\">Go to Settings page</a> "
-"&ndash; <a href=\"%s\">Dismiss</a></p></div>"
-msgstr ""
-"‫‏‫<div class=“updated”><p>پلاگین لینک کوتاه فعال شده است. برای عملکرد هر چه "
-"بهتر این پلاگین لطفا تنظیمات آن را انجام دهید. <a href=“%s”>تنظیمات پلاگین "
-"لینک کوتاه</a> &ndash; <a href=“%s”>صرف نظر</a></p></div>"
+#: includes/class.controller.settings.php:64
+msgid "RNG_Shortlink is activated, you may need to configure it to work properly."
+msgstr "RNG_Shortlink فعال است، ممکن است لازم باشد آن را پیکربندی کنید تا به درستی کار کند."
 
-#: includes/class.controller.settings.php:76
+#: includes/class.controller.settings.php:64
+msgid "Go to Settings page"
+msgstr "رفتن به تنظیمات"
+
+#: includes/class.controller.settings.php:64
+msgid "Dismiss"
+msgstr "انصراف"
+
+#: includes/class.controller.settings.php:77
 msgid "Settings"
 msgstr "تنظیمات"
 

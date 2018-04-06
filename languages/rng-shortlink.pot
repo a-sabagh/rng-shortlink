@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-05 02:02+0430\n"
+"POT-Creation-Date: 2018-04-06 14:41+0430\n"
 "PO-Revision-Date: 2018-04-05 02:02+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -43,15 +44,21 @@ msgstr ""
 msgid "Shortlink Settings"
 msgstr ""
 
-#: includes/class.controller.settings.php:63
-#, php-format
+#: includes/class.controller.settings.php:64
 msgid ""
-"<div class=\"updated\"><p>RNG_Shortlink is activated, you may need to "
-"configure it to work properly. <a href=\"%s\">Go to Settings page</a> "
-"&ndash; <a href=\"%s\">Dismiss</a></p></div>"
+"RNG_Shortlink is activated, you may need to configure it to work "
+"properly."
 msgstr ""
 
-#: includes/class.controller.settings.php:76
+#: includes/class.controller.settings.php:64
+msgid "Go to Settings page"
+msgstr ""
+
+#: includes/class.controller.settings.php:64
+msgid "Dismiss"
+msgstr ""
+
+#: includes/class.controller.settings.php:77
 msgid "Settings"
 msgstr ""
 

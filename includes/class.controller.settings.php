@@ -60,8 +60,9 @@ class rngshl_setting {
     public function configuration_notices() {
         $dismiss = get_option("rngshl_configure_dismiss");
         if (!$dismiss) {
-            $output = sprintf(__('<div class="updated"><p>RNG_Shortlink is activated, you may need to configure it to work properly. <a href="%s">Go to Settings page</a> &ndash; <a href="%s">Dismiss</a></p></div>', 'rng-shortlink'), admin_url('admin.php?page=shortlink-settings'), add_query_arg('rngshl_dismis_notice', 'true'));
-            echo $output;
+            ?>
+            <div class="updated"><p><?php _e('RNG_Shortlink is activated, you may need to configure it to work properly.' , 'rng-shortlink'); ?> <a href="<?php echo admin_url('admin.php?page=shortlink-settings') ?>"><?php _e("Go to Settings page","rng-shortlink"); ?></a> &ndash; <a href="<?php echo add_query_arg('rngshl_dismis_notice', 'true'); ?>"><?php _e("Dismiss","rng-shortlink"); ?></a></p></div>
+            <?php
         }
     }
 
