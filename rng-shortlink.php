@@ -9,6 +9,7 @@
   Text Domain: rng-shortlink
  */
 
+define(RNGSHL_FILE, __FILE__);
 define(RNGSHL_PRF, plugin_basename( __FILE__ ));//rng-shortlink/rng-shortlink.php
 define(RNGSHL_PDU, plugin_dir_url(__FILE__));   //http://localhost:8888/rng-plugin/wp-content/plugins/rng-shortlink/
 define(RNGSHL_PRT, basename(__DIR__));          //rng-refresh.php

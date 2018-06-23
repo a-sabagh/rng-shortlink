@@ -6,6 +6,7 @@ class rngshl_controller {
         if (is_admin()) {
             add_action('add_meta_boxes', array($this, 'metaboxes_init'));
         }
+        register_activation_hook(RNGSHL_FILE, array($this,"add_shortlink_rewrite_rule"));
         add_shortcode("rngshl_shortlink", array($this, "shortcode_shortlink"));
     }
 
@@ -40,6 +41,11 @@ class rngshl_controller {
 
     public function shortlink_metabox_input($post) {
         require_once RNGSHL_ADM . 'metabox-shortlink.php';
+    }
+    
+    public function add_shortlink_rewrite_rule(){
+        add_rewrite_rule("^p([0-9]+)/?$", 'index.php?p=$matches[1]',"top");
+        flush_rewrite_rules();
     }
 
 }
