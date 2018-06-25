@@ -50,7 +50,7 @@ class rngshl_controller {
         flush_rewrite_rules();
     }
 
-    private function pop_max_id($array){
+    private function pop_max_id(&$array){
         if (count($array) > 20) {
             while (count($array) > 20) {
                 array_pop($array);
