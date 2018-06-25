@@ -50,15 +50,49 @@ class rngshl_controller {
         flush_rewrite_rules();
     }
 
-    private function get_cookie($cookie_name){}
+    private function get_cookie($cookie_name){
+        $clicked_posts = $_COOKIE[$cookie_name];
+        if(isset($clicked_posts) and !empty($clicked_posts)){
+            return unserialize($clicked_posts);
+        }else{
+            return FALSE;
+        }
+    }
 
-    private function set_cookie($cookie_name,$id){}
+    private function set_cookie($cookie_name,$id){
+        $cookie_value = serialize(array($id));
+        setcookie($cookie_name, $cookie_value, time() + YEAR_IN_SECONDS, "/");
+    }
 
-    private function update_cookie($cookie_name,$id){}
+    private function update_cookie($cookie_name,$id){
+        $clicked_posts = $this->get_cookie($cookie_name);
+        if(!is_array($clicked_posts))
+            return FALSE;
+        $result = array_unshift($clicked_posts, $id);
+        if($result){
+            $this->remove_cookie($cookie_name);
+            $this->setcookie($cookie_name,$clicked_posts);
+        }else{
+            return FALSE;
+        }
+    }
 
-    private function remove_cookie($cookie_name){}
+    private function remove_cookie($cookie_name){
+        unset($_COOKIE[$cookie_name]);
+        setcookie($cookie_name, '', time() - 3600, '/');
+    }
 
-    private function update_click_event($meta_key,$post_id){}
+    private function update_click_event($meta_key,$post_id){
+        $count_click = get_post_meta($post_id,$meta_key,TRUE);
+        if(isset($count_click) && !empty($count_click)){
+            $new_count_click = intval($count_click)+1;
+            $new_count_click = strval($new_count_click);
+            update_post_meta($post_id,$meta_key,$new_count_click);
+        }else{
+            delete_post_meta($post_id,$meta_key);
+            update_post_meta($post_id,$meta_key,'1');
+        }
+    }
 
     /*
      * redirect shortlink to mainlink by post_id and shl_id query variable 
@@ -66,7 +100,7 @@ class rngshl_controller {
      * 2.click event set postmeta *shl_click_event
      * 3.redirect to main link
      */
-    
+
     public function shortlink_to_mainlink(){
         $id = get_query_var("shl_id");
         if(!isset($id) || empty($id))
@@ -74,9 +108,9 @@ class rngshl_controller {
         $cookie_name = "shl_click_event";
         $meta_key = "shl_click_event";
         $permalink = get_the_permalink($id);
-        $cookie_value = $this->get_cookie($cookie_name);
-        if($cookie_value){
-            if(in_array($id, $cookie_value)){
+        $clicked_posts = $this->get_cookie($cookie_name);
+        if($clicked_posts){
+            if(in_array($id, $clicked_posts)){
                 wp_redirect($permalink);
             }else{
                 $this->update_cookie($cookie_name,$id);
@@ -84,6 +118,7 @@ class rngshl_controller {
                 wp_redirect($permalink);
             }
         }else{
+            $this->remove_cookie($cookie_name);
             $this->set_cookie($cookie_name,$id);
             $this->update_click_event($meta_key,$id);
             wp_redirect($permalink);
