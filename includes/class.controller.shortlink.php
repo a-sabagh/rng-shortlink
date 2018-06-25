@@ -7,6 +7,7 @@ class rngshl_controller {
             add_action('add_meta_boxes', array($this, 'metaboxes_init'));
         }
         register_activation_hook(RNGSHL_FILE, array($this,"add_shortlink_rewrite_rule"));
+        add_action("template_redirect","shortlink_to_mainlink");
         add_shortcode("rngshl_shortlink", array($this, "shortcode_shortlink"));
     }
 
@@ -45,7 +46,15 @@ class rngshl_controller {
     
     public function add_shortlink_rewrite_rule(){
         add_rewrite_rule("^p([0-9]+)/?$", 'index.php?p=$matches[1]',"top");
+        add_rewrite_tag("%shl_id%","([0-9]+)");
         flush_rewrite_rules();
+    }
+
+    public function shortlink_to_mainlink(){
+        //(set/update) cookie
+        //click event set postmeta *shl_click_event*
+        //redirect to main link
+
     }
 
 }
