@@ -50,6 +50,15 @@ class rngshl_controller {
         flush_rewrite_rules();
     }
 
+    private function pop_max_id($array){
+        if (count($array) > 20) {
+            while (count($array) > 20) {
+                array_pop($array);
+            }
+        }
+        return;
+    }
+
     private function get_cookie($cookie_name){
         $clicked_posts = $_COOKIE[$cookie_name];
         if(isset($clicked_posts) and !empty($clicked_posts)){
@@ -70,6 +79,7 @@ class rngshl_controller {
             return FALSE;
         $result = array_unshift($clicked_posts, $id);
         if($result){
+            $this->pop_max_id($clicked_posts);
             $this->remove_cookie($cookie_name);
             $this->setcookie($cookie_name,$clicked_posts);
         }else{
