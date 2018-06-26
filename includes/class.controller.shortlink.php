@@ -69,8 +69,12 @@ class rngshl_controller {
     }
 
     private function set_cookie($cookie_name, $id) {
-        $cookie_value = serialize(array($id));
-        setcookie($cookie_name, $cookie_value, time() + YEAR_IN_SECONDS, "/");
+        if(is_array($id)){
+            $cookie_value = serialize(array_map("intval", $id));
+        }else{
+            $cookie_value = serialize(array_map("intval", array($id)));
+        }
+        $result = setcookie($cookie_name, $cookie_value, time() + YEAR_IN_SECONDS, "/");
     }
 
     private function update_cookie($cookie_name, $id) {
@@ -81,7 +85,7 @@ class rngshl_controller {
         if ($result) {
             $this->pop_max_id($clicked_posts);
             $this->remove_cookie($cookie_name);
-            $this->setcookie($cookie_name, $clicked_posts);
+            $this->set_cookie($cookie_name, $clicked_posts);
         } else {
             return FALSE;
         }
