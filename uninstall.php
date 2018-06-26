@@ -16,3 +16,5 @@ foreach ($options as $option) {
 // drop a metadata
 global $wpdb;
 $wpdb->query("DELETE * FROM {$wpdb->prefix}postmeta WHERE meta_key = 'rngrf_is_refresh_active' OR meta_key='rngrf_is_refresh_active'");
+// flush rewrite rules
+flush_rewrite_rules();
