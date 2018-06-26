@@ -1,3 +1,3 @@
 <div class="align-left">
-<br><code class="ltr align-left"><?php echo site_url() . "/p" . $post->ID; ?></code><br>
+    <br><input readonly style="direction:ltr;text-align: left;width: 100%;" type="text" value="<?php echo site_url() . "/p" . $post->ID; ?>" onclick="select()"><br>
 </div>
