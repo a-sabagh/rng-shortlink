@@ -29,7 +29,10 @@ class rngshl_setting {
         unset($post_types[$key]);
         foreach ($post_types as $post_type):
             ?>
-            <label><?php echo $post_type ?><input type="checkbox" name="rngshl_general_setting_option[<?php echo $args['name']; ?>][]" <?php echo (in_array($post_type, $values)) ? "checked" : ""; ?> value="<?php echo $post_type; ?>" ></label>
+            <label>
+                <?php echo $post_type ?>&nbsp;<input type="checkbox" name="rngshl_general_setting_option[<?php echo $args['name']; ?>][]" <?php echo (in_array($post_type, $values)) ? "checked" : ""; ?> value="<?php echo $post_type; ?>" >
+            </label>
+            <br>
             <?php
         endforeach;
     }
