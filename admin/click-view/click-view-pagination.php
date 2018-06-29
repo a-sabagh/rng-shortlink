@@ -4,12 +4,12 @@ $paginate_count_center = floor($paginate_count / 2);
 if ($current <= $paginate_count_center + 1) {
     $start = 1;
     $end = ($paginate_count > $pages) ? $pages : $paginate_count;
-    $prev_disable = ($current == $start) ? "rng-disable" : "";
-    $next_disable = ($current == $end) ? "rng-disable" : "";
+    $prev_disable = ($current == $start) ? "rng-disable" : "prev";
+    $next_disable = ($current == $end) ? "rng-disable" : "next";
 } else {
     $start = ($current - $paginate_count_center) - max(($current + $paginate_count_center) - $pages, 0);
     $end = ($current + $paginate_count_center) - max(($current + $paginate_count_center) - $pages, 0);
-    $next_disable = ($current == $end) ? "rng-disable" : "";
+    $next_disable = ($current == $end) ? "rng-disable" : "next";
 }
 
 /*
@@ -28,7 +28,7 @@ if ($current <= $paginate_count_center + 1) {
 
 <div class="shl-pagination-wrapper">
     <ul class="shl-pagination-list">
-        <li><a href="#" class="prev <?php echo $prev_disable; ?>" title="<?php esc_html_e("Prev", "rng-shortlink"); ?>"><?php esc_html_e("Prev", "rng-shortlink"); ?></a></li>
+        <li><a href="#" class="<?php echo $prev_disable; ?>" title="<?php esc_html_e("Prev", "rng-shortlink"); ?>"><?php esc_html_e("Prev", "rng-shortlink"); ?></a></li>
         <?php
         $i = $start;
         while ($i <= $end):
@@ -39,7 +39,7 @@ if ($current <= $paginate_count_center + 1) {
             $i++;
         endwhile;
         ?>
-        <li><a href="#" class="next <?php echo $next_disable; ?> " title="<?php esc_html_e("Next", "rng-shortlink"); ?>"><?php esc_html_e("Next", "rng-shortlink"); ?></a></li>
+        <li><a href="#" class="<?php echo $next_disable; ?>" title="<?php esc_html_e("Next", "rng-shortlink"); ?>"><?php esc_html_e("Next", "rng-shortlink"); ?></a></li>
 
     </ul>
 </div>
