@@ -15,6 +15,8 @@ class rngshl_click_view {
         add_action("admin_menu", array($this, "click_view_menu"));
         add_action("admin_enqueue_scripts", array($this, "admin_localize_script"));
         add_action("wp_ajax_click_view_paginate",array($this,"click_view_paginate"));
+        add_action("wp_ajax_click_view_next",array($this,"click_view_paginate"));
+        add_action("wp_ajax_click_view_prev",array($this,"click_view_paginate"));
     }
 
     public function admin_localize_script() {

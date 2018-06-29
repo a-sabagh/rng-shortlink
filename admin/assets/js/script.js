@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
     var admin_ajax = SHL_OBJ.admin_url;
 
-    /**/
+    /* click on numeric items */
     function paginate_lists(page) {
         $.ajax({
             url: admin_ajax,
@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    /**/
+    /* click on next item */
     function next_list(current) {
         $.ajax({
             url: admin_ajax,
@@ -29,19 +29,17 @@ jQuery(document).ready(function ($) {
                 action: "click_view_next",
                 page : current+1
             },
-            beforeSend: function(){},
+            beforeSend: function(){ $(".shl-preloader").show(); },
             success: function(respons){
-                var result = JSON.parse(respons);
-                $(".shl-click-view-table tbody").html(result.report);
-                $(".shl-pagination-list").html(result.pagination);
+                $(".shl-click-view-table tbody").html(respons.report);
+                $(".shl-pagination-list").html(respons.pagination);
+                $(".shl-preloader").hide();
             },
-            error: function(){
-                console.log("Error with rng-shortlink plugin ajax report problem");
-            }
+            error: function(){ console.log("Error with rng-shortlink plugin ajax report problem"); }
         });
     }
 
-    /**/
+    /* click on previous item */
     function prev_list(current) {
         $.ajax({
             url: admin_ajax,
@@ -50,13 +48,17 @@ jQuery(document).ready(function ($) {
                 action: "click_view_prev",
                 page : current-1
             },
-            beforeSend: function(){},
-            success: function(){},
-            error: function(){}
+            beforeSend: function(){ $(".shl-preloader").show(); },
+            success: function(respons){
+                $(".shl-click-view-table tbody").html(respons.report);
+                $(".shl-pagination-list").html(respons.pagination);
+                $(".shl-preloader").hide();
+            },
+            error: function(){ console.log("Error with rng-shortlink plugin ajax report problem"); }
         });
     }
 
-    /**/
+    /* pagination click event */
     $(".shl-pagination-list").on("click", "li a", function (e) {
         e.preventDefault();
         var item_class = $(this).attr("class");
