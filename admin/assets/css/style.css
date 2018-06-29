@@ -32,3 +32,9 @@ and open the template in the editor.
 .shl-click-view-table thead tr th{
     padding: 10px 5px;
 }
+.rng-disable{
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}
