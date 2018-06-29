@@ -32,7 +32,7 @@ if ($current <= $paginate_count_center + 1) {
         <?php
         $i = $start;
         while ($i <= $end):
-            $list_class = ($i == $current) ? "rng-disable" : "paginate";
+            $list_class = ($i == $current) ? "rng-disable current" : "paginate";
             ?>
             <li><a href="#" class="<?php echo $list_class; ?>" data-paginate="<?php echo $i; ?>" title="<?php echo $i; ?>"><?php echo $i; ?></a></li>
             <?php
