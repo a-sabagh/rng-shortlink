@@ -75,6 +75,7 @@ and open the template in the editor.
     list-style: none;
     border-radius: .25rem;
     justify-content: center;
+    direction: ltr;
 }
 .shl-pagination-list li a{
     position: relative;

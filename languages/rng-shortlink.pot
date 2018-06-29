@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-04-06 14:41+0430\n"
+"POT-Creation-Date: 2018-06-29 23:05+0430\n"
 "PO-Revision-Date: 2018-04-05 02:02+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,8 +13,35 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: admin/click-view/click-view-pagination-ajax.php:29
+#: admin/click-view/click-view-pagination.php:31
+msgid "Prev"
+msgstr ""
+
+#: admin/click-view/click-view-pagination-ajax.php:40
+#: admin/click-view/click-view-pagination.php:42
+msgid "Next"
+msgstr ""
+
+#: admin/click-view/click-view-report.php:12
+msgid "Post Title"
+msgstr ""
+
+#: admin/click-view/click-view-report.php:13
+msgid "Post Date"
+msgstr ""
+
+#: admin/click-view/click-view-report.php:14
+#: includes/class.controller.shortlink.php:39
+msgid "Shortlink"
+msgstr ""
+
+#: admin/click-view/click-view-report.php:15
+msgid "All Click"
+msgstr ""
 
 #: admin/setting-panel.php:6
 msgid "Settings saved"
@@ -28,40 +55,44 @@ msgstr ""
 msgid "save"
 msgstr ""
 
+#: includes/class.controller.clicked.php:51
+msgid "Click View Report"
+msgstr ""
+
+#: includes/class.controller.clicked.php:51
+msgid "Click View"
+msgstr ""
+
 #: includes/class.controller.settings.php:16
 msgid "Check Post types You Want to Show Shortlink Metabox in Edit Panels"
 msgstr ""
 
-#: includes/class.controller.settings.php:40
+#: includes/class.controller.settings.php:43
 msgid "shortlink plugin settings"
 msgstr ""
 
-#: includes/class.controller.settings.php:43
+#: includes/class.controller.settings.php:46
 msgid "sholtlink permission"
 msgstr ""
 
-#: includes/class.controller.settings.php:53
+#: includes/class.controller.settings.php:56
 msgid "Shortlink Settings"
 msgstr ""
 
-#: includes/class.controller.settings.php:64
+#: includes/class.controller.settings.php:67
 msgid ""
 "RNG_Shortlink is activated, you may need to configure it to work "
 "properly."
 msgstr ""
 
-#: includes/class.controller.settings.php:64
+#: includes/class.controller.settings.php:67
 msgid "Go to Settings page"
 msgstr ""
 
-#: includes/class.controller.settings.php:64
+#: includes/class.controller.settings.php:67
 msgid "Dismiss"
 msgstr ""
 
-#: includes/class.controller.settings.php:77
+#: includes/class.controller.settings.php:80
 msgid "Settings"
-msgstr ""
-
-#: includes/class.controller.shortlink.php:37
-msgid "Shortlink"
 msgstr ""

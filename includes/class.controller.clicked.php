@@ -48,7 +48,7 @@ class rngshl_click_view {
     }
 
     public function click_view_menu() {
-        add_submenu_page("tools.php", __("Click View Report", "rng-shortlink"), __("Click View"), "manage_options", "shl_click_view", array($this, "click_view_report"));
+        add_submenu_page("tools.php", __("Click View Report", "rng-shortlink"), __("Click View","rng-shortlink"), "manage_options", "shl_click_view", array($this, "click_view_report"));
     }
 
     public function click_view_report() {
