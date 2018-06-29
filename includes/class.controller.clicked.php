@@ -13,6 +13,12 @@ class rngshl_click_view {
         $this->posts_per_page = $posts_per_page;
         $this->paginate_count = $paginate_count;
         add_action("admin_menu", array($this, "click_view_menu"));
+        add_action("admin_enqueue_scripts", array($this, "admin_localize_script"));
+    }
+
+    public function admin_localize_script() {
+        $data = array("admin_url" => admin_url("admin-ajax.php"));
+        wp_localize_script("shl-click-view-scripts", "SHL_OBJ", $data);
     }
 
     public function get_posts_per_page() {
@@ -64,5 +70,6 @@ class rngshl_click_view {
     }
 
 }
+
 //$paginate_count must be odd
-new rngshl_click_view(15,7);
+new rngshl_click_view(15, 7);
