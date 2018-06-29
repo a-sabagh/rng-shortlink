@@ -10,9 +10,13 @@ jQuery(document).ready(function ($) {
                 action: "click_view_paginate",
                 page : page
             },
-            beforeSend: function(){},
-            success: function(){},
-            error: function(){}
+            beforeSend: function(){ $(".shl-preloader").show(); },
+            success: function(respons){
+                $(".shl-click-view-table tbody").html(respons.report);
+                $(".shl-pagination-list").html(respons.pagination);
+                $(".shl-preloader").hide();
+            },
+            error: function(){ console.log("Error with rng-shortlink plugin ajax report problem"); }
         });
     }
 
@@ -26,8 +30,14 @@ jQuery(document).ready(function ($) {
                 page : current+1
             },
             beforeSend: function(){},
-            success: function(){},
-            error: function(){}
+            success: function(respons){
+                var result = JSON.parse(respons);
+                $(".shl-click-view-table tbody").html(result.report);
+                $(".shl-pagination-list").html(result.pagination);
+            },
+            error: function(){
+                console.log("Error with rng-shortlink plugin ajax report problem");
+            }
         });
     }
 
@@ -47,7 +57,7 @@ jQuery(document).ready(function ($) {
     }
 
     /**/
-    $(".shl-pagination-list li a").on("click", function (e) {
+    $(".shl-pagination-list").on("click", "li a", function (e) {
         e.preventDefault();
         var item_class = $(this).attr("class");
         switch (item_class) {

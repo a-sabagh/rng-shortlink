@@ -14,6 +14,7 @@ class rngshl_click_view {
         $this->paginate_count = $paginate_count;
         add_action("admin_menu", array($this, "click_view_menu"));
         add_action("admin_enqueue_scripts", array($this, "admin_localize_script"));
+        add_action("wp_ajax_click_view_paginate",array($this,"click_view_paginate"));
     }
 
     public function admin_localize_script() {
@@ -67,6 +68,38 @@ class rngshl_click_view {
         );
         require_once RNGSHL_ADM . 'click-view/click-view-report.php';
         require_once RNGSHL_ADM . 'click-view/click-view-pagination.php';
+    }
+    
+    public function click_view_paginate(){
+        $current = $_POST['page'];
+        $posts_per_page = $this->get_posts_per_page();
+        $paginate_count = $this->get_paginate_count();
+        $posts_count = $this->posts_count_report();
+        $offset = ($current-1)*$posts_per_page;
+        $query_args = array(
+            'meta_query' => array(
+                array(
+                    'key' => 'shl_click_event',
+                    'type' => 'NUMERIC',
+                    'value' => 0,
+                    'compare' => '>'
+                )
+            ),
+            'offset' => $offset,
+            'posts_per_page' => $this->posts_per_page
+        );
+        ob_start();
+        require_once RNGSHL_ADM . 'click-view/click-view-report-ajax.php';
+        $report = ob_get_clean();
+        ob_start();
+        require_once RNGSHL_ADM . 'click-view/click-view-pagination-ajax.php';
+        $pagination = ob_get_clean();
+        $respons = array(
+            'report' => $report,
+            'pagination' => $pagination
+        );
+        echo wp_send_json($respons);
+        wp_die();
     }
 
 }

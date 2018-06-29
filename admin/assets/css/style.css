@@ -38,3 +38,32 @@ and open the template in the editor.
     opacity: 0.5;
     text-decoration: none;
 }
+.wrap {
+    position: relative;
+}
+.shl-preloader {
+    background: rgba(204, 204, 204, 0.5);
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    z-index: 9999;
+}
+.shl-spinner {
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #7e7e7e; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 40%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
