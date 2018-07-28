@@ -5,8 +5,10 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 }
 //delte options
 $options = array(
-    "rng_refresh_configure_dismiss",
-    "refresh_general_setting_option"
+    "rngshl_configure_dismiss",
+    "rngshl_general_setting_option",
+    "rngshl_first_flush"
+    
 );
 foreach ($options as $option) {
     if (get_option($option)) {
@@ -15,6 +17,6 @@ foreach ($options as $option) {
 }
 // drop a metadata
 global $wpdb;
-$wpdb->query("DELETE * FROM {$wpdb->prefix}postmeta WHERE meta_key = 'rngrf_is_refresh_active' OR meta_key='rngrf_is_refresh_active'");
+$wpdb->query("DELETE * FROM {$wpdb->prefix}postmeta WHERE meta_key = 'shl_click_event'");
 // flush rewrite rules
 flush_rewrite_rules();

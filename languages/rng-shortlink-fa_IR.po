@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-06-29 23:04+0430\n"
-"PO-Revision-Date: 2018-06-29 23:04+0430\n"
+"POT-Creation-Date: 2018-07-29 01:29+0430\n"
+"PO-Revision-Date: 2018-07-29 01:30+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
@@ -34,7 +34,7 @@ msgid "Post Date"
 msgstr "تاریخ انتشار"
 
 #: admin/click-view/click-view-report.php:14
-#: includes/class.controller.shortlink.php:39
+#: includes/class.controller.shortlink.php:41
 msgid "Shortlink"
 msgstr "لینک کوتاه"
 
@@ -98,3 +98,15 @@ msgstr "انصراف"
 #: includes/class.controller.settings.php:80
 msgid "Settings"
 msgstr "تنظیمات"
+
+#: includes/class.controller.shortlink.php:154
+msgid "To make the rng-shortlink plugin worked Please first "
+msgstr "برای این که پلاگین لینک کوتاه به درستی کار کند ابتدا "
+
+#: includes/class.controller.shortlink.php:154
+msgid "Permalink Settings"
+msgstr "پلاگین لینک کوتاه"
+
+#: includes/class.controller.shortlink.php:154
+msgid "Flush rewrite rules"
+msgstr "لینک ها را بازسازی کنید."

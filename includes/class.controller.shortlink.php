@@ -7,6 +7,8 @@ class rngshl_controller {
             add_action('add_meta_boxes', array($this, 'metaboxes_init'));
         }
         add_action("init", array($this, "add_shortlink_rewrite_rule"));
+        add_action("admin_notices",array($this,"first_flush_notice"));
+        add_action("update_option_permalink_structure" , array($this,"update_first_flush"));
         add_action("template_redirect", array($this, "shortlink_to_mainlink"));
         add_shortcode("rngshl_shortlink", array($this, "shortcode_shortlink"));
     }
@@ -47,7 +49,6 @@ class rngshl_controller {
     public function add_shortlink_rewrite_rule() {
         add_rewrite_rule("^p([0-9]+)/?$", 'index.php?shl_id=$matches[1]', "top");
         add_rewrite_tag("%shl_id%", "([0-9]+)");
-        flush_rewrite_rules();
     }
 
     private function pop_max_id(&$array) {
@@ -137,6 +138,20 @@ class rngshl_controller {
             $this->update_click_event($meta_key, $id);
             wp_redirect($permalink);
         }
+    }
+    
+    public function update_first_flush(){
+        update_option("rngshl_first_flush", "true");
+    }
+    
+    private function first_flush_check(){
+        return get_option("rngshl_first_flush");
+    }
+    
+    public function first_flush_notice() {
+        if($this->first_flush_check())
+            return;
+        ?><div class="updated"><p><?php esc_html_e("To make the rng-shortlink plugin worked Please first "); ?><a href="<?php echo get_admin_url(); ?>/options-permalink.php" title="<?php esc_html_e("Permalink Settings","rng-shortlink") ?>" ><?php esc_html_e("Flush rewrite rules","rng-shortlink"); ?></a></p></div><?php
     }
 
 }

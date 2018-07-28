@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-06-29 23:05+0430\n"
+"POT-Creation-Date: 2018-07-29 01:29+0430\n"
 "PO-Revision-Date: 2018-04-05 02:02+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
@@ -35,7 +35,7 @@ msgid "Post Date"
 msgstr ""
 
 #: admin/click-view/click-view-report.php:14
-#: includes/class.controller.shortlink.php:39
+#: includes/class.controller.shortlink.php:41
 msgid "Shortlink"
 msgstr ""
 
@@ -95,4 +95,16 @@ msgstr ""
 
 #: includes/class.controller.settings.php:80
 msgid "Settings"
+msgstr ""
+
+#: includes/class.controller.shortlink.php:154
+msgid "To make the rng-shortlink plugin worked Please first "
+msgstr ""
+
+#: includes/class.controller.shortlink.php:154
+msgid "Permalink Settings"
+msgstr ""
+
+#: includes/class.controller.shortlink.php:154
+msgid "Flush rewrite rules"
 msgstr ""
