@@ -9,6 +9,7 @@ if ($current <= $paginate_count_center + 1) {
 } else {
     $start = ($current - $paginate_count_center) - max(($current + $paginate_count_center) - $pages, 0);
     $end = ($current + $paginate_count_center) - max(($current + $paginate_count_center) - $pages, 0);
+    $prev_disable = ($current == $start) ? "rng-disable" : "prev";
     $next_disable = ($current == $end) ? "rng-disable" : "next";
 }
 
