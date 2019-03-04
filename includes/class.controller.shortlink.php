@@ -34,7 +34,7 @@ class rngshl_controller {
                 $active_flag = TRUE;
             }
         } else {
-            $post_types = array('page');
+            $post_types = array('post');
             $active_flag = TRUE;
         }
         if ($active_flag) {
@@ -120,9 +120,29 @@ class rngshl_controller {
         $id = get_query_var("shl_id");
         if (!isset($id) || empty($id))
             return;
+        $option = get_option("rngshl_general_setting_option");
+        $active_flag = FALSE;
+        $post_types = array();
+        if (isset($option)) {
+            if (!empty($option['rngshl-active-post-type'])) {
+                $post_types = $option['rngshl-active-post-type'];
+                $active_flag = TRUE;
+            }
+        } else {
+            $post_types = array('post');
+            $active_flag = TRUE;
+        }
+
         $cookie_name = "shl_click_event";
         $meta_key = "shl_click_event";
         $permalink = get_the_permalink($id);
+        $post_type = get_post_type($id);
+        
+        if(!in_array($post_type, $post_types)){
+            wp_redirect($permalink);
+            return true;
+        }
+        
         $clicked_posts = $this->get_cookie($cookie_name);
         if ($clicked_posts) {
             if (in_array($id, $clicked_posts)) {
