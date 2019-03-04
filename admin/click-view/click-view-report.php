@@ -5,6 +5,7 @@ if (!current_user_can("manage_options")) {
 ?>
 <div class="wrap">
     <h1><?php echo get_admin_page_title(); ?></h1>
+    <span class="admin-seprator-line"></span>
     <div class="shl-preloader"><span class="shl-spinner"></span></div>
     <table class="shl-click-view-table">
         <thead>
