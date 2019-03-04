@@ -1,44 +1,44 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-07-29 01:29+0430\n"
-"PO-Revision-Date: 2018-07-29 01:30+0430\n"
+"POT-Creation-Date: 2019-03-04 17:47+0330\n"
+"PO-Revision-Date: 2019-03-04 17:51+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/click-view/click-view-pagination-ajax.php:29
-#: admin/click-view/click-view-pagination.php:31
+#: admin/click-view/click-view-pagination-ajax.php:30
+#: admin/click-view/click-view-pagination.php:32
 msgid "Prev"
 msgstr "قبلی"
 
-#: admin/click-view/click-view-pagination-ajax.php:40
-#: admin/click-view/click-view-pagination.php:42
+#: admin/click-view/click-view-pagination-ajax.php:41
+#: admin/click-view/click-view-pagination.php:43
 msgid "Next"
 msgstr "بعدی"
 
-#: admin/click-view/click-view-report.php:12
+#: admin/click-view/click-view-report.php:13
 msgid "Post Title"
 msgstr "عنوان پست"
 
-#: admin/click-view/click-view-report.php:13
+#: admin/click-view/click-view-report.php:14
 msgid "Post Date"
 msgstr "تاریخ انتشار"
 
-#: admin/click-view/click-view-report.php:14
-#: includes/class.controller.shortlink.php:41
+#: admin/click-view/click-view-report.php:15
+#: includes/class.controller.shortlink.php:56
 msgid "Shortlink"
 msgstr "لینک کوتاه"
 
-#: admin/click-view/click-view-report.php:15
+#: admin/click-view/click-view-report.php:16
 msgid "All Click"
 msgstr "کل کلیک ها"
 
@@ -99,14 +99,32 @@ msgstr "انصراف"
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: includes/class.controller.shortlink.php:154
+#: includes/class.controller.shortlink.php:178
 msgid "To make the rng-shortlink plugin worked Please first "
 msgstr "برای این که پلاگین لینک کوتاه به درستی کار کند ابتدا "
 
-#: includes/class.controller.shortlink.php:154
+#: includes/class.controller.shortlink.php:178
 msgid "Permalink Settings"
 msgstr "پلاگین لینک کوتاه"
 
-#: includes/class.controller.shortlink.php:154
+#: includes/class.controller.shortlink.php:178
 msgid "Flush rewrite rules"
 msgstr "لینک ها را بازسازی کنید."
+
+#: includes/translate.php:2
+msgid "rng-shortlink"
+msgstr "کوتاه کننده لینک"
+
+#: includes/translate.php:3
+msgid ""
+"WordPress plugin that create a short link for public post types in both "
+"admin panel (with meta box) and front end (with shortcode) by using query "
+"variables."
+msgstr ""
+"پلاگین تولید لینک کوتاه به ازای پست تایپ ها و ثبت تعداد کلیک روی هر لینک و "
+"نمایش گزارش کلیک های کاربران روی لینک ها به همراه تنظیمات پیشرفته و شورتکد "
+"و متاباکس برای نمایش لینک کوتاه در پنل ادمین و فرانت اند وب سایت."
+
+#: includes/translate.php:4
+msgid "Abolfazl Sabagh"
+msgstr "ابوالفضل صباغ"

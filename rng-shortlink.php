@@ -1,9 +1,9 @@
 <?php
 /*
-  Plugin Name: RNG_Shortlink
-  Description: wordpress plugin that create shortlink for public post types in both of admin panel (with metabox) and front end (with shortcode) by usnig query variables . 
+  Plugin Name: rng-shortlink
+  Description: WordPress plugin that create a short link for public post types in both admin panel (with meta box) and front end (with shortcode) by using query variables.
   Version: 1.0
-  Author: abolfazl sabagh
+  Author: Abolfazl Sabagh
   Author URI: http://asabagh.ir
   License: GPLv2 or later
   Text Domain: rng-shortlink

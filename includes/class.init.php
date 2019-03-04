@@ -15,6 +15,7 @@ class rngshl_init {
 
     public function plugins_loaded() {
         load_plugin_textdomain( $this->slug , false, RNGSHL_PRT . "/languages" );
+        require_once trailingslashit(__DIR__) . "translate.php";
     }
     
     public function admin_enqueue_scripts($hook){
