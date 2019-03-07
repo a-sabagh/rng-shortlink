@@ -1,4 +1,8 @@
 <?php
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
 $pages = ceil($posts_count / $posts_per_page);
 $paginate_count_center = floor($paginate_count / 2);
 if ($current <= $paginate_count_center + 1) {
