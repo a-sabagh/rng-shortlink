@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-03-04 18:08+0330\n"
-"PO-Revision-Date: 2019-03-04 18:08+0330\n"
+"POT-Creation-Date: 2019-03-07 15:45+0330\n"
+"PO-Revision-Date: 2019-03-07 15:45+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -15,107 +15,103 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/click-view/click-view-pagination-ajax.php:30
-#: admin/click-view/click-view-pagination.php:32
+#: admin/click-view/click-view-pagination-ajax.php:34
+#: admin/click-view/click-view-pagination.php:36
 msgid "Prev"
 msgstr "قبلی"
 
-#: admin/click-view/click-view-pagination-ajax.php:41
-#: admin/click-view/click-view-pagination.php:43
+#: admin/click-view/click-view-pagination-ajax.php:45
+#: admin/click-view/click-view-pagination.php:47
 msgid "Next"
 msgstr "بعدی"
 
-#: admin/click-view/click-view-report.php:13
+#: admin/click-view/click-view-report.php:17
 msgid "Post Title"
 msgstr "عنوان پست"
 
-#: admin/click-view/click-view-report.php:14
+#: admin/click-view/click-view-report.php:18
 msgid "Post Date"
 msgstr "تاریخ انتشار"
 
-#: admin/click-view/click-view-report.php:15
-#: includes/class.controller.shortlink.php:56
+#: admin/click-view/click-view-report.php:19
+#: includes/class.controller.shortlink.php:71
 msgid "Shortlink"
 msgstr "لینک کوتاه"
 
-#: admin/click-view/click-view-report.php:16
+#: admin/click-view/click-view-report.php:20
 msgid "All Click"
 msgstr "کل کلیک ها"
 
-#: admin/setting-panel.php:6
+#: admin/setting-panel.php:10
 msgid "Settings saved"
 msgstr "تنظیمات ذخیره شد"
 
-#: admin/setting-panel.php:8
+#: admin/setting-panel.php:12
 msgid "Error with saving"
 msgstr "خطا در ذخیره سازی"
 
-#: admin/setting-panel.php:17
+#: admin/setting-panel.php:21
 msgid "save"
 msgstr "ذخیره"
 
-#: includes/class.controller.clicked.php:51
+#: includes/class.controller.clicked.php:84
 msgid "Click View Report"
 msgstr "گزارش کلیک"
 
-#: includes/class.controller.clicked.php:51
+#: includes/class.controller.clicked.php:84
 msgid "Click View"
 msgstr "گزارش کلیک"
 
-#: includes/class.controller.settings.php:16
+#: includes/class.controller.settings.php:25
 msgid "Check Post types You Want to Show Shortlink Metabox in Edit Panels"
 msgstr ""
 "پست تایپ هایی که قصد دارید متاباکس لینک کوتاه در آن ها نمایش داده شود را "
 "انتخاب کنید"
 
-#: includes/class.controller.settings.php:43
+#: includes/class.controller.settings.php:56
 msgid "shortlink plugin settings"
 msgstr "تنظیمات"
 
-#: includes/class.controller.settings.php:46
+#: includes/class.controller.settings.php:59
 msgid "sholtlink permission"
 msgstr "اجازه برای لینک کوتاه"
 
-#: includes/class.controller.settings.php:56
+#: includes/class.controller.settings.php:69
 msgid "Shortlink Settings"
 msgstr "پلاگین لینک کوتاه"
 
-#: includes/class.controller.settings.php:67
+#: includes/class.controller.settings.php:80
 msgid ""
 "RNG_Shortlink is activated, you may need to configure it to work properly."
 msgstr ""
 "RNG_Shortlink فعال است، ممکن است لازم باشد آن را پیکربندی کنید تا به درستی "
 "کار کند."
 
-#: includes/class.controller.settings.php:67
+#: includes/class.controller.settings.php:80
 msgid "Go to Settings page"
 msgstr "رفتن به تنظیمات"
 
-#: includes/class.controller.settings.php:67
+#: includes/class.controller.settings.php:80
 msgid "Dismiss"
 msgstr "انصراف"
 
-#: includes/class.controller.settings.php:80
+#: includes/class.controller.settings.php:93
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: includes/class.controller.shortlink.php:178
+#: includes/class.controller.shortlink.php:241
 msgid "To make the rng-shortlink plugin worked Please first "
 msgstr "برای این که پلاگین لینک کوتاه به درستی کار کند ابتدا "
 
-#: includes/class.controller.shortlink.php:178
-msgid "Permalink Settings"
-msgstr "پلاگین لینک کوتاه"
-
-#: includes/class.controller.shortlink.php:178
+#: includes/class.controller.shortlink.php:241
 msgid "Flush rewrite rules"
 msgstr "لینک ها را بازسازی کنید"
 
-#: includes/translate.php:2
+#: includes/translate.php:5
 msgid "rng-shortlink"
 msgstr "کوتاه کننده لینک"
 
-#: includes/translate.php:3
+#: includes/translate.php:6
 msgid ""
 "WordPress plugin that create a short link for public post types in both "
 "admin panel (with meta box) and front end (with shortcode) by using query "
@@ -125,6 +121,9 @@ msgstr ""
 "نمایش گزارش کلیک های کاربران روی لینک ها به همراه تنظیمات پیشرفته و شورتکد و "
 "متاباکس برای نمایش لینک کوتاه در پنل ادمین و فرانت اند وب سایت."
 
-#: includes/translate.php:4
+#: includes/translate.php:7
 msgid "Abolfazl Sabagh"
 msgstr "ابوالفضل صباغ"
+
+#~ msgid "Permalink Settings"
+#~ msgstr "پلاگین لینک کوتاه"
