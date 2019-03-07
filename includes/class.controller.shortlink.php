@@ -13,6 +13,10 @@ class rngshl_controller {
         add_shortcode("rngshl_shortlink", array($this, "shortcode_shortlink"));
     }
 
+    /**
+     * get settings from admin panel and action based on this
+     * @return Array
+     */
     private function get_settings() {
         $option = get_option("rngshl_general_setting_option");
         $active_flag = FALSE;
@@ -33,6 +37,12 @@ class rngshl_controller {
         );
     }
 
+    /**
+     * callback function of shortlink shortcode
+     * @global Object $post
+     * @param Array $atts
+     * @return String
+     */
     public function shortcode_shortlink($atts) {
         $array_atts = shortcode_atts(
                 array(
@@ -43,12 +53,15 @@ class rngshl_controller {
         extract($params);
         ob_start();
         global $post;
-        if(in_array($post->post_type, $post_types)){
+        if (in_array($post->post_type, $post_types)) {
             require_once RNGSHL_TMP . 'shortcode-shortlink.php';
         }
         return ob_get_clean();
     }
 
+    /**
+     * add shortlink metabox based on admin settings
+     */
     public function metaboxes_init() {
         $params = $this->get_settings();
         extract($params);
@@ -57,15 +70,27 @@ class rngshl_controller {
         }
     }
 
+    /**
+     * callback function of metabox init
+     * @param Object $post
+     */
     public function shortlink_metabox_input($post) {
         require_once RNGSHL_ADM . 'metabox-shortlink.php';
     }
 
+    /**
+     * add sortlink rewrite rule HOME_URL/p[PAGE_ID]
+     */
     public function add_shortlink_rewrite_rule() {
         add_rewrite_rule("^p([0-9]+)/?$", 'index.php?shl_id=$matches[1]', "top");
         add_rewrite_tag("%shl_id%", "([0-9]+)");
     }
 
+    /**
+     * if array member count grather than 20 pop member since member count equals 20 
+     * @param Array $array
+     * @return Array
+     */
     private function pop_max_id(&$array) {
         if (count($array) > 20) {
             while (count($array) > 20) {
@@ -75,6 +100,11 @@ class rngshl_controller {
         return;
     }
 
+    /**
+     * get cookie and unserialize it
+     * @param String $cookie_name
+     * @return boolean
+     */
     private function get_cookie($cookie_name) {
         $clicked_posts = $_COOKIE[$cookie_name];
         if (isset($clicked_posts) and ! empty($clicked_posts)) {
@@ -84,6 +114,11 @@ class rngshl_controller {
         }
     }
 
+    /**
+     * set cookie in special format that be used in plugin
+     * @param String $cookie_name
+     * @param Integer $id
+     */
     private function set_cookie($cookie_name, $id) {
         if (is_array($id)) {
             $cookie_value = serialize(array_map("intval", $id));
@@ -93,6 +128,12 @@ class rngshl_controller {
         $result = setcookie($cookie_name, $cookie_value, time() + YEAR_IN_SECONDS, "/");
     }
 
+    /**
+     * update cookie when click action is fire for visitor
+     * @param String $cookie_name
+     * @param Integer $id
+     * @return boolean
+     */
     private function update_cookie($cookie_name, $id) {
         $clicked_posts = $this->get_cookie($cookie_name);
         if (!is_array($clicked_posts))
@@ -107,11 +148,20 @@ class rngshl_controller {
         }
     }
 
+    /**
+     * complatly remove cookie
+     * @param String $cookie_name
+     */
     private function remove_cookie($cookie_name) {
         unset($_COOKIE[$cookie_name]);
         setcookie($cookie_name, '', time() - 3600, '/');
     }
 
+    /**
+     * update clicked meta for each post
+     * @param String $meta_key
+     * @param Integer $post_id
+     */
     private function update_click_event($meta_key, $post_id) {
         $count_click = get_post_meta($post_id, $meta_key, TRUE);
         if (isset($count_click) && !empty($count_click)) {
@@ -164,18 +214,29 @@ class rngshl_controller {
         }
     }
 
+    /**
+     * check first flush in options
+     */
     public function update_first_flush() {
         update_option("rngshl_first_flush", "true");
     }
 
+    /**
+     * check is first flush is run or not
+     * @return String
+     */
     private function first_flush_check() {
         return get_option("rngshl_first_flush");
     }
 
+    /**
+     * show first flush notice in admin panel on plugin install
+     * @return type
+     */
     public function first_flush_notice() {
         if ($this->first_flush_check())
             return;
-        ?><div class="updated"><p><?php esc_html_e("To make the rng-shortlink plugin worked Please first ","rng-shortlink"); ?><a href="<?php echo get_admin_url(); ?>/options-permalink.php" title="<?php esc_html_e("Permalink Settings", "rng-shortlink") ?>" ><?php esc_html_e("Flush rewrite rules", "rng-shortlink"); ?></a></p></div><?php
+        ?><div class="updated"><p><?php esc_html_e("To make the rng-shortlink plugin worked Please first ", "rng-shortlink"); ?><a href="<?php echo get_admin_url(); ?>/options-permalink.php" title="<?php esc_html_e("Permalink Settings", "rng-shortlink") ?>" ><?php esc_html_e("Flush rewrite rules", "rng-shortlink"); ?></a></p></div><?php
     }
 
 }

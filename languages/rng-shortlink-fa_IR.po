@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-03-04 17:47+0330\n"
-"PO-Revision-Date: 2019-03-04 17:51+0330\n"
+"POT-Creation-Date: 2019-03-04 18:08+0330\n"
+"PO-Revision-Date: 2019-03-04 18:08+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -109,7 +109,7 @@ msgstr "پلاگین لینک کوتاه"
 
 #: includes/class.controller.shortlink.php:178
 msgid "Flush rewrite rules"
-msgstr "لینک ها را بازسازی کنید."
+msgstr "لینک ها را بازسازی کنید"
 
 #: includes/translate.php:2
 msgid "rng-shortlink"
@@ -122,8 +122,8 @@ msgid ""
 "variables."
 msgstr ""
 "پلاگین تولید لینک کوتاه به ازای پست تایپ ها و ثبت تعداد کلیک روی هر لینک و "
-"نمایش گزارش کلیک های کاربران روی لینک ها به همراه تنظیمات پیشرفته و شورتکد "
-"و متاباکس برای نمایش لینک کوتاه در پنل ادمین و فرانت اند وب سایت."
+"نمایش گزارش کلیک های کاربران روی لینک ها به همراه تنظیمات پیشرفته و شورتکد و "
+"متاباکس برای نمایش لینک کوتاه در پنل ادمین و فرانت اند وب سایت."
 
 #: includes/translate.php:4
 msgid "Abolfazl Sabagh"

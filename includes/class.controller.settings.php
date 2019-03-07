@@ -1,7 +1,9 @@
 <?php
 
 class rngshl_setting {
-
+    /**
+     * constructor
+     */
     public function __construct() {
         if (is_admin()) {
             add_action("admin_init", array($this, "general_settings_init"));
@@ -11,11 +13,17 @@ class rngshl_setting {
             add_filter('plugin_action_links_' . RNGSHL_PRF, array($this, 'add_setting_link'));
         }
     }
-
+    /**
+     * implement section top of general settings panel.
+     * @param Array $args
+     */
     public function general_setting_section_top($args) {
         _e("Check Post types You Want to Show Shortlink Metabox in Edit Panels","rng-shortlink");
     }
-
+    /**
+     * 
+     * @param type $args
+     */
     public function general_setting_active_post_type($args) {
         $option = get_option("rngshl_general_setting_option");
         if (isset($option)) {
