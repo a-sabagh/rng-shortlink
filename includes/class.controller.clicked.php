@@ -81,7 +81,7 @@ class rngshl_click_view {
      * add submenu in tool menu in admin panel for posts was clicked report
      */
     public function click_view_menu() {
-        add_submenu_page("tools.php", __("Click View Report", "rng-shortlink"), __("Click View", "rng-shortlink"), "manage_options", "shl_click_view", array($this, "click_view_report"));
+        add_submenu_page("tools.php", esc_html__("Click View Report", "rng-shortlink"), esc_html__("Click View", "rng-shortlink"), "manage_options", "shl_click_view", array($this, "click_view_report"));
     }
 
     /**
@@ -112,7 +112,7 @@ class rngshl_click_view {
      * prepare query after paginate execute
      */
     public function click_view_paginate() {
-        $current = $_POST['page'];
+        $current = (int) $_POST['page'];
         $posts_per_page = $this->get_posts_per_page();
         $paginate_count = $this->get_paginate_count();
         $posts_count = $this->posts_count_report();

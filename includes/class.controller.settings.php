@@ -22,7 +22,7 @@ class rngshl_setting {
      * @param Array $args
      */
     public function general_setting_section_top($args) {
-        _e("Check Post types You Want to Show Shortlink Metabox in Edit Panels", "rng-shortlink");
+        esc_html_e("Check Post types You Want to Show Shortlink Metabox in Edit Panels", "rng-shortlink");
     }
 
     /**
@@ -53,10 +53,10 @@ class rngshl_setting {
     public function general_settings_init() {
         register_setting("rngshl_general_setting", "rngshl_general_setting_option");
         add_settings_section(
-                "rngshl-general-settings-top", __("shortlink plugin settings", "rng-shortlink"), array($this, "general_setting_section_top"), "rngshl_general_setting"
+                "rngshl-general-settings-top", esc_html__("shortlink plugin settings", "rng-shortlink"), array($this, "general_setting_section_top"), "rngshl_general_setting"
         );
         add_settings_field(
-                "rngshl-active-post-type", __("sholtlink permission", "rng-shortlink"), array($this, "general_setting_active_post_type"), "rngshl_general_setting", "rngshl-general-settings-top", array(
+                "rngshl-active-post-type", esc_html__("sholtlink permission", "rng-shortlink"), array($this, "general_setting_active_post_type"), "rngshl_general_setting", "rngshl-general-settings-top", array(
             "label_for" => "rngshl-active-post-type",
             "name" => "rngshl-active-post-type",
             "class" => "regular-text",
@@ -66,7 +66,7 @@ class rngshl_setting {
     }
 
     public function admin_menu() {
-        add_submenu_page('options-general.php', __("Shortlink Settings", "rng-shortlink"), __("Shortlink Settings", "rng-shortlink"), 'administrator', 'shortlink-settings', array($this, "shortlink_setting_panel"));
+        add_submenu_page('options-general.php', esc_html__("Shortlink Settings", "rng-shortlink"), esc_html__("Shortlink Settings", "rng-shortlink"), 'administrator', 'shortlink-settings', array($this, "shortlink_setting_panel"));
     }
 
     public function shortlink_setting_panel() {
@@ -77,7 +77,7 @@ class rngshl_setting {
         $dismiss = get_option("rngshl_configure_dismiss");
         if (!$dismiss) {
             ?>
-            <div class="updated"><p><?php _e('RNG_Shortlink is activated, you may need to configure it to work properly.', 'rng-shortlink'); ?> <a href="<?php echo admin_url('admin.php?page=shortlink-settings') ?>"><?php _e("Go to Settings page", "rng-shortlink"); ?></a> &ndash; <a href="<?php echo add_query_arg('rngshl_dismis_notice', 'true'); ?>"><?php _e("Dismiss", "rng-shortlink"); ?></a></p></div>
+            <div class="updated"><p><?php esc_html_e('RNG_Shortlink is activated, you may need to configure it to work properly.', 'rng-shortlink'); ?> <a href="<?php echo admin_url('admin.php?page=shortlink-settings') ?>"><?php esc_html_e("Go to Settings page", "rng-shortlink"); ?></a> &ndash; <a href="<?php echo add_query_arg('rngshl_dismis_notice', 'true'); ?>"><?php esc_html_e("Dismiss", "rng-shortlink"); ?></a></p></div>
             <?php
         }
     }
@@ -90,7 +90,7 @@ class rngshl_setting {
 
     public function add_setting_link($links) {
         $mylinks = array(
-            '<a href="' . admin_url('options-general.php?page=shortlink-settings') . '">' . __("Settings", "rng-shortlink") . '</a>',
+            '<a href="' . admin_url('options-general.php?page=shortlink-settings') . '">' . esc_html__("Settings", "rng-shortlink") . '</a>',
         );
         return array_merge($links, $mylinks);
     }

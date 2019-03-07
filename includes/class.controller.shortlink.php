@@ -68,7 +68,7 @@ class rngshl_controller {
         $params = $this->get_settings();
         extract($params);
         if ($active_flag) {
-            add_meta_box("shortlink_init", __("Shortlink", "rng-shortlink"), array($this, 'shortlink_metabox_input'), $post_types, "side", "low");
+            add_meta_box("shortlink_init", esc_html__("Shortlink", "rng-shortlink"), array($this, 'shortlink_metabox_input'), $post_types, "side", "low");
         }
     }
 
@@ -238,7 +238,7 @@ class rngshl_controller {
     public function first_flush_notice() {
         if ($this->first_flush_check())
             return;
-        ?><div class="updated"><p><?php esc_html_e("To make the rng-shortlink plugin worked Please first ", "rng-shortlink"); ?><a href="<?php echo get_admin_url(); ?>/options-permalink.php" title="<?php esc_html_e("Permalink Settings", "rng-shortlink") ?>" ><?php esc_html_e("Flush rewrite rules", "rng-shortlink"); ?></a></p></div><?php
+        ?><div class="updated"><p><?php esc_html_e("To make the rng-shortlink plugin worked Please first ", "rng-shortlink"); ?><a href="<?php echo get_admin_url(); ?>/options-permalink.php" title="<?php esc_attr_e("Permalink Settings", "rng-shortlink") ?>" ><?php esc_html_e("Flush rewrite rules", "rng-shortlink"); ?></a></p></div><?php
     }
 
 }
