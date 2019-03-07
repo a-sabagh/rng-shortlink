@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 class rngshl_controller {
 
     public function __construct() {

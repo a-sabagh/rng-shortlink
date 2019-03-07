@@ -1,6 +1,9 @@
 <?php
 
+defined('ABSPATH') || exit;
+
 class rngshl_setting {
+
     /**
      * constructor
      */
@@ -13,13 +16,15 @@ class rngshl_setting {
             add_filter('plugin_action_links_' . RNGSHL_PRF, array($this, 'add_setting_link'));
         }
     }
+
     /**
      * implement section top of general settings panel.
      * @param Array $args
      */
     public function general_setting_section_top($args) {
-        _e("Check Post types You Want to Show Shortlink Metabox in Edit Panels","rng-shortlink");
+        _e("Check Post types You Want to Show Shortlink Metabox in Edit Panels", "rng-shortlink");
     }
+
     /**
      * 
      * @param type $args
@@ -48,7 +53,7 @@ class rngshl_setting {
     public function general_settings_init() {
         register_setting("rngshl_general_setting", "rngshl_general_setting_option");
         add_settings_section(
-                "rngshl-general-settings-top", __("shortlink plugin settings","rng-shortlink"), array($this, "general_setting_section_top"), "rngshl_general_setting"
+                "rngshl-general-settings-top", __("shortlink plugin settings", "rng-shortlink"), array($this, "general_setting_section_top"), "rngshl_general_setting"
         );
         add_settings_field(
                 "rngshl-active-post-type", __("sholtlink permission", "rng-shortlink"), array($this, "general_setting_active_post_type"), "rngshl_general_setting", "rngshl-general-settings-top", array(
@@ -72,7 +77,7 @@ class rngshl_setting {
         $dismiss = get_option("rngshl_configure_dismiss");
         if (!$dismiss) {
             ?>
-            <div class="updated"><p><?php _e('RNG_Shortlink is activated, you may need to configure it to work properly.' , 'rng-shortlink'); ?> <a href="<?php echo admin_url('admin.php?page=shortlink-settings') ?>"><?php _e("Go to Settings page","rng-shortlink"); ?></a> &ndash; <a href="<?php echo add_query_arg('rngshl_dismis_notice', 'true'); ?>"><?php _e("Dismiss","rng-shortlink"); ?></a></p></div>
+            <div class="updated"><p><?php _e('RNG_Shortlink is activated, you may need to configure it to work properly.', 'rng-shortlink'); ?> <a href="<?php echo admin_url('admin.php?page=shortlink-settings') ?>"><?php _e("Go to Settings page", "rng-shortlink"); ?></a> &ndash; <a href="<?php echo add_query_arg('rngshl_dismis_notice', 'true'); ?>"><?php _e("Dismiss", "rng-shortlink"); ?></a></p></div>
             <?php
         }
     }

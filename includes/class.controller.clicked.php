@@ -1,8 +1,6 @@
 <?php
 
-if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+defined('ABSPATH') || exit;
 
 class rngshl_click_view {
 
@@ -109,6 +107,7 @@ class rngshl_click_view {
         require_once RNGSHL_ADM . 'click-view/click-view-report.php';
         require_once RNGSHL_ADM . 'click-view/click-view-pagination.php';
     }
+
     /**
      * prepare query after paginate execute
      */
