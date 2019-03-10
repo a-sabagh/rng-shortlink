@@ -17,6 +17,6 @@ foreach ($options as $option) {
 }
 // drop a metadata
 global $wpdb;
-$wpdb->query("DELETE * FROM {$wpdb->prefix}postmeta WHERE meta_key = 'shl_click_event'");
+$wpdb->query("DELETE FROM {$wpdb->prefix}postmeta WHERE meta_key = 'shl_click_event'");
 // flush rewrite rules
 flush_rewrite_rules();
