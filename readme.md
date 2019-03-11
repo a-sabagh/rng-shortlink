@@ -8,7 +8,7 @@ License: GPLv2 or later
 
 rng-shortlink creates a short link for posts and any post types you want and shows reports from clicking count in the admin panel.
 
-#Description
+# Description
 
 rng-shortlink create a short link for public post types in both admin panel (with meta box) and front end (with shortcode) by using query variables.
 you can define which post type can have a short link to do so you must go `settings > Shortlink Settings` and specify what post types follow up.
@@ -26,7 +26,7 @@ Main features in rng-ajaxlike include:
 
 it is strongly was recommended that after the plugin is activated, go to the permalink settings and change URL structure and undo.
 
-#Installation
+# Installation
 
 1. Upload the plugin files to the `/wp-content/plugins/rng-shortlink` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
