@@ -22,6 +22,7 @@ Main features in rng-ajaxlike include:
 *    Has shortcode to showing the short link
 *    This plugin avoids from any conflict with other plugins
 *    has not any overhead
+*	 Show short link using shortcode in frontend `rngshl_shortlink`
 
 it is strongly was recommended that after the plugin is activated, go to the permalink settings and change URL structure and undo.
 
