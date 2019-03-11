@@ -77,7 +77,7 @@ class rngshl_setting {
         $dismiss = get_option("rngshl_configure_dismiss");
         if (!$dismiss) {
             ?>
-            <div class="updated"><p><?php esc_html_e('RNG_Shortlink is activated, you may need to configure it to work properly.', 'rng-shortlink'); ?> <a href="<?php echo admin_url('admin.php?page=shortlink-settings') ?>"><?php esc_html_e("Go to Settings page", "rng-shortlink"); ?></a> &ndash; <a href="<?php echo add_query_arg('rngshl_dismis_notice', 'true'); ?>"><?php esc_html_e("Dismiss", "rng-shortlink"); ?></a></p></div>
+            <div class="updated"><p><?php esc_html_e('RNG_Shortlink is activated, you may need to configure it to work properly.', 'rng-shortlink'); ?> <a href="<?php echo admin_url('options-general.php?page=shortlink-settings') ?>"><?php esc_html_e("Go to Settings page", "rng-shortlink"); ?></a> &ndash; <a href="<?php echo add_query_arg('rngshl_dismis_notice', 'true'); ?>"><?php esc_html_e("Dismiss", "rng-shortlink"); ?></a></p></div>
             <?php
         }
     }
