@@ -19,6 +19,13 @@ class rngshl_click_view {
     private $paginate_count;
 
     /**
+     * general query argument
+     * used for main query
+     * @var Array 
+     */
+    private $general_args;
+
+    /**
      * constructor
      * @param Integer $posts_per_page
      * @param Integer $paginate_count
@@ -26,6 +33,18 @@ class rngshl_click_view {
     public function __construct($posts_per_page, $paginate_count) {
         $this->posts_per_page = $posts_per_page;
         $this->paginate_count = $paginate_count;
+        $public_post_types = array_values(get_post_types(array('public' => true)));
+        $this->general_args = array(
+            'meta_query' => array(
+                array(
+                    'key' => 'shl_click_event',
+                    'type' => 'NUMERIC',
+                    'value' => 0,
+                    'compare' => '>'
+                )
+            ),
+            'post_type' => $public_post_types
+        );
         add_action("admin_menu", array($this, "click_view_menu"));
         add_action("admin_enqueue_scripts", array($this, "admin_localize_script"));
         add_action("wp_ajax_click_view_paginate", array($this, "click_view_paginate"));
@@ -63,17 +82,8 @@ class rngshl_click_view {
      * @return Integer
      */
     public function posts_count_report() {
-        $query_args = array(
-            'meta_query' => array(
-                array(
-                    'key' => 'shl_click_event',
-                    'type' => 'NUMERIC',
-                    'value' => 0,
-                    'compare' => '>'
-                )
-            ),
-            'posts_per_page' => -1
-        );
+        $query_args = $this->general_args;
+        $query_args['posts_per_page'] = -1;
         return count(get_posts($query_args));
     }
 
@@ -92,18 +102,9 @@ class rngshl_click_view {
         $posts_per_page = $this->get_posts_per_page();
         $paginate_count = $this->get_paginate_count();
         $posts_count = $this->posts_count_report();
+        $query_args = $this->general_args;
+        $query_args['posts_per_page'] = $this->posts_per_page;
 
-        $query_args = array(
-            'meta_query' => array(
-                array(
-                    'key' => 'shl_click_event',
-                    'type' => 'NUMERIC',
-                    'value' => 0,
-                    'compare' => '>'
-                )
-            ),
-            'posts_per_page' => $this->posts_per_page
-        );
         require_once RNGSHL_ADM . 'click-view/click-view-report.php';
         require_once RNGSHL_ADM . 'click-view/click-view-pagination.php';
     }
@@ -116,19 +117,13 @@ class rngshl_click_view {
         $posts_per_page = $this->get_posts_per_page();
         $paginate_count = $this->get_paginate_count();
         $posts_count = $this->posts_count_report();
+        $public_post_types = array_values(get_post_types(array('public' => true)));
         $offset = ($current - 1) * $posts_per_page;
-        $query_args = array(
-            'meta_query' => array(
-                array(
-                    'key' => 'shl_click_event',
-                    'type' => 'NUMERIC',
-                    'value' => 0,
-                    'compare' => '>'
-                )
-            ),
-            'offset' => $offset,
-            'posts_per_page' => $this->posts_per_page
-        );
+
+        $query_args = $this->general_args;
+        $query_args['posts_per_page'] = $this->posts_per_page;
+        $query_args['offset'] = $offset;
+
         ob_start();
         require_once RNGSHL_ADM . 'click-view/click-view-report-ajax.php';
         $report = ob_get_clean();

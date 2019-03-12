@@ -1,5 +1,4 @@
 <?php
-
 defined('ABSPATH') || exit;
 
 class rngshl_controller {
@@ -21,22 +20,9 @@ class rngshl_controller {
      */
     private function get_settings() {
         $option = get_option("rngshl_general_setting_option");
-        $active_flag = FALSE;
-        $post_types = array();
-        if (isset($option)) {
-            if (!empty($option['rngshl-active-post-type'])) {
-                $post_types = $option['rngshl-active-post-type'];
-                $active_flag = TRUE;
-            }
-        } else {
-            $post_types = array('post');
-            $active_flag = TRUE;
-        }
+        $post_types = (isset($option) and ! empty($option)) ? (array) $option['rngshl-active-post-type'] : array('post');
 
-        return array(
-            'active_flag' => $active_flag,
-            'post_types' => $post_types
-        );
+        return $post_types;
     }
 
     /**
@@ -51,8 +37,7 @@ class rngshl_controller {
             'wrapper_class' => '',
                 ), $atts, 'rngshl_shortlink'
         );
-        $params = $this->get_settings();
-        extract($params);
+        $post_types = $this->get_settings();
         ob_start();
         global $post;
         if (in_array($post->post_type, $post_types)) {
@@ -65,9 +50,10 @@ class rngshl_controller {
      * add shortlink metabox based on admin settings
      */
     public function metaboxes_init() {
-        $params = $this->get_settings();
-        extract($params);
-        if ($active_flag) {
+        $post_id = intval($_GET['post']);
+        $post_type = get_post_type($post_id);
+        $post_types = $this->get_settings();
+        if (in_array($post_type, $post_types)) {
             add_meta_box("shortlink_init", esc_html__("Shortlink", "rng-shortlink"), array($this, 'shortlink_metabox_input'), $post_types, "side", "low");
         }
     }
@@ -94,12 +80,9 @@ class rngshl_controller {
      * @return Array
      */
     private function pop_max_id(&$array) {
-        if (count($array) > 20) {
-            while (count($array) > 20) {
-                array_pop($array);
-            }
+        while (count($array) > 20) {
+            array_pop($array);
         }
-        return;
     }
 
     /**
@@ -109,11 +92,7 @@ class rngshl_controller {
      */
     private function get_cookie($cookie_name) {
         $clicked_posts = $_COOKIE[$cookie_name];
-        if (isset($clicked_posts) and ! empty($clicked_posts)) {
-            return unserialize($clicked_posts);
-        } else {
-            return FALSE;
-        }
+        return (!empty($clicked_posts)) ? unserialize($clicked_posts) : false;
     }
 
     /**
@@ -122,12 +101,8 @@ class rngshl_controller {
      * @param Integer $id
      */
     private function set_cookie($cookie_name, $id) {
-        if (is_array($id)) {
-            $cookie_value = serialize(array_map("intval", $id));
-        } else {
-            $cookie_value = serialize(array_map("intval", array($id)));
-        }
-        $result = setcookie($cookie_name, $cookie_value, time() + YEAR_IN_SECONDS, "/");
+        $cookie_value = serialize(array_map("intval", (array)$id));
+        setcookie($cookie_name, $cookie_value, time() + YEAR_IN_SECONDS, "/");
     }
 
     /**
@@ -184,31 +159,28 @@ class rngshl_controller {
      */
 
     public function shortlink_to_mainlink() {
-        $id = get_query_var("shl_id");
+        $id = (int) get_query_var("shl_id");
         if (!isset($id) || empty($id))
             return;
-        $params = $this->get_settings();
-        extract($params);
+        $post_types = $this->get_settings();
         $cookie_name = "shl_click_event";
         $meta_key = "shl_click_event";
         $permalink = get_the_permalink($id);
         $post_type = get_post_type($id);
 
-        if (!in_array($post_type, $post_types)) {
+        $clicked_posts = (array) $this->get_cookie($cookie_name);
+        if (!in_array($post_type, $post_types) || in_array($id, $clicked_posts)) {
             wp_redirect($permalink);
-            return true;
+            return;
         }
 
-        $clicked_posts = $this->get_cookie($cookie_name);
-        if ($clicked_posts) {
-            if (in_array($id, $clicked_posts)) {
-                wp_redirect($permalink);
-            } else {
-                $this->update_cookie($cookie_name, $id);
-                $this->update_click_event($meta_key, $id);
-                wp_redirect($permalink);
-            }
+        if (array_filter($clicked_posts)) {
+            //cookie exist then update cookie
+            $this->update_cookie($cookie_name, $id);
+            $this->update_click_event($meta_key, $id);
+            wp_redirect($permalink);
         } else {
+            //cookie not exist create cookie
             $this->remove_cookie($cookie_name);
             $this->set_cookie($cookie_name, $id);
             $this->update_click_event($meta_key, $id);
@@ -236,8 +208,9 @@ class rngshl_controller {
      * @return type
      */
     public function first_flush_notice() {
-        if ($this->first_flush_check())
+        if ($this->first_flush_check()) {
             return;
+        }
         ?><div class="updated"><p><?php esc_html_e("To make the rng-shortlink plugin worked Please first ", "rng-shortlink"); ?><a href="<?php echo get_admin_url(); ?>/options-permalink.php" title="<?php esc_attr_e("Permalink Settings", "rng-shortlink") ?>" ><?php esc_html_e("Flush rewrite rules", "rng-shortlink"); ?></a></p></div><?php
     }
 

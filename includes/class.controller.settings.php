@@ -1,5 +1,4 @@
 <?php
-
 defined('ABSPATH') || exit;
 
 class rngshl_setting {
@@ -31,13 +30,8 @@ class rngshl_setting {
      */
     public function general_setting_active_post_type($args) {
         $option = get_option("rngshl_general_setting_option");
-        if (isset($option)) {
-            $values = (!empty($option[$args['name']])) ? $option[$args['name']] : array();
-        } else {
-            $values = array('page');
-        }
-        $pt_args = array('public' => TRUE);
-        $post_types = get_post_types($pt_args, 'names');
+        $values = (isset($option) and !empty($option)) ? (array) $option[$args['name']] : array('post');
+        $post_types = get_post_types( array('public' => TRUE), 'names');
         $key = array_search("attachment", $post_types);
         unset($post_types[$key]);
         foreach ($post_types as $post_type):
